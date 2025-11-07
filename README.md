@@ -1,3 +1,5 @@
+![App Screenshot](https://raw.githubusercontent.com/Adytm404/onion-domain-generator/refs/heads/main/img/1.png)
+
 # Simple Tor Hidden Service Setup Script
 
 This Bash script automates the process of setting up a simple Tor Hidden Service on a Debian-based system (like Ubuntu). It installs the necessary packages, runs a local Python web server on a port you specify, and configures Tor to route to it.

@@ -1,55 +1,55 @@
-# Setup Tor Hidden Service
+# Simple Tor Hidden Service Setup Script
 
-Script Bash ini mengotomatiskan proses pengaturan Tor Hidden Service di sistem berbasis Debian (seperti Ubuntu). Skrip ini akan menginstal paket yang diperlukan, menjalankan server web Python lokal pada port yang Anda tentukan, dan mengonfigurasi Tor untuk mengarahkannya ke server tersebut.
-
----
-
-## Kebutuhan Sistem
-
-* Sistem operasi berbasis Debian (yang menggunakan manajer paket `apt`).
-* Akses `sudo`, karena skrip perlu menginstal paket dan memodifikasi file konfigurasi sistem.
+This Bash script automates the process of setting up a simple Tor Hidden Service on a Debian-based system (like Ubuntu). It installs the necessary packages, runs a local Python web server on a port you specify, and configures Tor to route to it.
 
 ---
 
-## Cara Menjalankan
+## Requirements
 
-1.  **Berikan Izin Eksekusi**
-    Sebelum menjalankan skrip, Anda harus membuatnya dapat dieksekusi:
+* A Debian-based operating system (which uses the `apt` package manager).
+* `sudo` access, as the script needs to install packages and modify system configuration files.
+
+---
+
+## How to Run
+
+1.  **Make the Script Executable**
+    Before running the script, you must grant it execution permissions:
     ```bash
     chmod +x tor.sh
     ```
 
-2.  **Jalankan Skrip**
-    Jalankan skrip menggunakan `sudo` atau sebagai root (karena skrip ini memanggil `sudo` di dalamnya untuk instalasi dan konfigurasi):
+2.  **Run the Script**
+    Execute the script (it handles `sudo` internally for necessary commands):
     ```bash
     ./tor.sh
     ```
 
-3.  **Masukkan Port**
-    Skrip akan meminta Anda memasukkan port yang ingin digunakan untuk server web lokal. Port ini *bukan* port publik, melainkan port di `127.0.0.1` (localhost) tempat server Python akan berjalan.
+3.  **Enter Your Port**
+    The script will first prompt you to enter a port for the local web server. This is *not* the public port, but the port on `127.0.0.1` (localhost) that the Python server will listen on.
     ```
     Masukkan port yang ingin digunakan untuk hidden service (contoh: 8080):
     8080
     ```
 
-4.  **Tunggu Proses Selesai**
-    Skrip akan secara otomatis:
-    * Menginstal `tor` dan `python3`.
-    * Membuat direktori server.
-    * Menjalankan server HTTP Python di latar belakang.
-    * Mengonfigurasi Tor (`/etc/tor/torrc`).
-    * Merestart layanan Tor.
+4.  **Wait for Setup to Complete**
+    The script will then automatically perform the following steps:
+    * Install `tor` and `python3`.
+    * Create the server directory.
+    * Start the Python HTTP server in the background.
+    * Configure Tor (`/etc/tor/torrc`).
+    * Restart the Tor service.
 
-5.  **Dapatkan Alamat .onion Anda**
-    Setelah selesai, skrip akan menampilkan alamat `.onion` Anda di terminal.
+5.  **Get Your .onion Address**
+    Once finished, the script will print your new `.onion` address to the terminal.
 
 ---
 
-## Lokasi File HTML Kustom
+## Custom HTML File Location
 
-Untuk mengubah konten yang ditampilkan di situs .onion Anda, Anda perlu mengedit file `index.html` atau menambahkan file lain ke direktori server.
+To change the content displayed on your .onion site, you need to edit the `index.html` file or add other files to the server directory.
 
-* **Lokasi Direktori Server:** `~/tor_service` (Folder `tor_service` di dalam direktori Home Anda).
-* **File HTML Utama:** `~/tor_service/index.html`
+* **Server Directory Location:** `~/tor_service` (The `tor_service` folder in your Home directory).
+* **Main HTML File:** `~/tor_service/index.html`
 
-Anda dapat mengedit file `index.html` tersebut atau menempatkan file HTML, CSS, dan gambar Anda sendiri di dalam direktori `~/tor_service`.
+You can edit this `index.html` file or place your own HTML, CSS, and image files inside the `~/tor_service` directory to serve them.

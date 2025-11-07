@@ -1,6 +1,6 @@
-# Skrip Setup Tor Hidden Service Sederhana
+# Setup Tor Hidden Service
 
-Skrip Bash ini mengotomatiskan proses pengaturan Tor Hidden Service di sistem berbasis Debian (seperti Ubuntu). Skrip ini akan menginstal paket yang diperlukan, menjalankan server web Python lokal pada port yang Anda tentukan, dan mengonfigurasi Tor untuk mengarahkannya ke server tersebut.
+Script Bash ini mengotomatiskan proses pengaturan Tor Hidden Service di sistem berbasis Debian (seperti Ubuntu). Skrip ini akan menginstal paket yang diperlukan, menjalankan server web Python lokal pada port yang Anda tentukan, dan mengonfigurasi Tor untuk mengarahkannya ke server tersebut.
 
 ---
 
